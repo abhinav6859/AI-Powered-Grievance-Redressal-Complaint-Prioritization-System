@@ -1,0 +1,8 @@
+
+
+# Ignore virtual environments
+venv/
+node_modules
+env
+backend/serviceAccountKey.json
+backend/serviceAccountKey.json

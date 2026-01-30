@@ -1,0 +1,86 @@
+{"intents":
+[
+{"tags": "greetings",
+"patterns": ["hi", "hello", "hey", "how are you", "what's up?"],
+"responses": ["Hi!", "Hello!", "Hey!", "Hey, I am fine", "What can I do for you?"]},
+
+{
+    "tags": "Water Supply",
+    "patterns": [
+      "no water in my area",
+      "water supply issue",
+      "when will water come",
+      "water not available",
+      "facing water shortage"
+    ],
+    "responses": [
+      "I am writing to express my concern regarding the ongoing water supply issue in our area. For the past several days, there has been no water supply, which is causing severe inconvenience to the residents. Basic daily activities such as cooking, cleaning, and sanitation have become extremely difficult due to the lack of water. This issue is affecting the health and hygiene of the community, especially for families with children and elderly members. We have tried to manage with stored water, but it is no longer sufficient. I kindly request the concerned authorities to take immediate action to resolve the problem and ensure a regular and uninterrupted water supply at the earliest. Thank you for your attention to this urgent matter."
+    ]
+  },
+  {
+    "tags": "Garbage Collection",
+    "patterns": [
+      "garbage not picked up",
+      "trash not collected",
+      "waste collection delay",
+      "no garbage truck",
+      "area is dirty"
+    ],
+    "responses": [
+      "This is to bring to your attention that garbage has not been collected in our locality for several days, resulting in an unhygienic environment. Kindly ensure timely waste collection."
+    ]
+  },
+  {
+    "tags": "Street Light",
+    "patterns": [
+      "street light not working",
+      "dark streets",
+      "need street light",
+      "light flickering",
+      "no light at night"
+    ],
+    "responses": [
+      "I wish to report that the street lights in our area are not functioning, leading to darkness during the night and potential safety concerns. Please address this issue at the earliest."
+    ]
+  },
+  {
+    "tags": "Road Damage",
+    "patterns": [
+      "road is broken",
+      "potholes everywhere",
+      "damaged road",
+      "need road repair",
+      "unsafe roads"
+    ],
+    "responses": [
+      "I would like to file a grievance regarding the poor condition of roads in our locality. There are multiple potholes making commuting difficult and dangerous. Kindly take necessary action."
+    ]
+  },
+  {
+    "tags": "Drainage Problem",
+    "patterns": [
+      "drain blocked",
+      "sewage problem",
+      "dirty water on roads",
+      "bad smell from drain",
+      "overflowing drain"
+    ],
+    "responses": [
+      "There is a serious drainage issue in our area due to blocked or overflowing drains, causing stagnant water and foul smell. Please resolve this at the earliest."
+    ]
+  },
+{
+  "tags": "Electricity Problem",
+  "patterns": [
+    "power cut",
+    "no electricity",
+    "voltage fluctuation",
+    "electricity issue",
+    "frequent power outage"
+  ],
+  "responses": [
+    "There are frequent power cuts and voltage fluctuations in our locality. It is affecting daily life and damaging appliances. Please resolve the electricity issue urgently."
+    ]
+   }
+  ]
+}

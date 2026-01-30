@@ -1,0 +1,72 @@
+[
+  {
+    "id": "68b053d15b38fa3b29a80d93",
+    "title": "Air Quality Alert",
+    "content": "Air pollution levels have reached hazardous limits in several parts of the city. Citizens are advised to limit outdoor activities and use masks when outside.",
+    "type": "urgent",
+    "audience": "public",
+    "expiryDate": "2025-12-01T00:00:00Z",
+    "isPinned": true,
+    "distributionChannels": {
+      "email": true,
+      "webApp": true,
+      "sms": true
+    },
+    "attachments": [],
+    "viewCount": 326,
+    "acknowledgments": 105,
+    "author": "Dr. Meera Joshi",
+    "authorRole": "Environmental Officer",
+    "department": "Pollution Control Board",
+    "timestamp": "2025-12-10T09:00:00Z"
+  },
+  {
+    "id": "68b054ab5b38fa3b29a80d94",
+    "title": "Public Health Vaccination Drive",
+    "content": "A free vaccination drive will be conducted in community centers across Ward 7 and Ward 8 on December 12, 2025. Citizens are encouraged to participate.",
+    "type": "general",
+    "audience": "citizen",
+    "expiryDate": "2025-12-01T00:00:00Z",
+    "isPinned": false,
+    "distributionChannels": {
+      "email": true,
+      "webApp": true,
+      "sms": false
+    },
+    "attachments": [
+      {
+        "name": "vaccination_schedule.pdf",
+        "type": "application/pdf",
+        "size": 92000,
+        "url": "https://govportal.example.com/files/vaccination_schedule.pdf"
+      }
+    ],
+    "viewCount": 210,
+    "acknowledgments": 78,
+    "author": "Dr. Arvind Nair",
+    "authorRole": "Chief Medical Officer",
+    "department": "Health Department",
+    "timestamp": "2025-12-05T11:45:00Z"
+  },
+  {
+    "id": "68b0556f5b38fa3b29a80d95",
+    "title": "Winter Shelter Availability",
+    "content": "Temporary winter shelters have been opened for homeless citizens due to extreme cold weather. Locations are listed on the municipal website.",
+    "type": "general",
+    "audience": "public",
+    "expiryDate": "2025-12-31T00:00:00Z",
+    "isPinned": true,
+    "distributionChannels": {
+      "email": false,
+      "webApp": true,
+      "sms": true
+    },
+    "attachments": [],
+    "viewCount": 132,
+    "acknowledgments": 54,
+    "author": "Sunil Rathore",
+    "authorRole": "Welfare Officer",
+    "department": "Social Welfare Department",
+    "timestamp": "2025-12-20T07:30:00Z"
+  }
+]
