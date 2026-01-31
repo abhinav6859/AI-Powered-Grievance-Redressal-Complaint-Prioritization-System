@@ -62,7 +62,7 @@ export default function Signup() {
       {/* LEFT PANEL */}
       <div className="hidden md:flex flex-col justify-between p-10 bg-gradient-to-br from-blue-600 to-indigo-700 text-white relative">
         <div>
-          <h1 className="text-3xl font-bold mb-2 tracking-wide">SAMADHAN</h1>
+          <h1 className="text-3xl font-bold mb-2 tracking-wide">LokSeva AI</h1>
           <h2 className="text-3xl lg:text-4xl font-extrabold mb-6 leading-tight">
             Join the Community <br/> & Drive Change.
           </h2>

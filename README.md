@@ -1,7 +1,7 @@
 #Overview
 
-This project presents an AI-driven Indian Grievance Management System that simplifies the lodging and resolution of public complaints. By integrating a multilingual chatbot, the system ensures accessibility across diverse linguistic groups.
-It employs advanced AI for automatic complaint categorization, sentiment analysis, and prioritization. Real-time tracking and offer transparency and trust. The platform bridges the gap between citizens and authorities, fostering efficient communication and prompt redressal of grievances.
+An AI-driven grievance management system designed for Indian public services. It enables citizens to submit complaints through a user-friendly portal while authorities manage and resolve them efficiently.
+The system uses NLP-based AI models to automatically classify, analyze sentiment, and prioritize grievances, ensuring faster redressal and transparency.
 
 
 #Frontend
@@ -20,54 +20,39 @@ It employs advanced AI for automatic complaint categorization, sentiment analysi
     • Tensorflow
     • Numpy
       
-#Project Structure
-  
-    /
-    ├── frontend/            # React-based interfaces
-    │   ├── grievancesystem/     # Citizen-facing portal
-    │   └── officials-portal/    # Admin dashboard
-    ├── backend/             # Node.js + Express + MongoDB APIs Python Flask AI/ML microservices
-    └── README.md
 
 
 #Features
-1.Citizen Portal
-    
-    • Easy grievance submission
-      
-    • Tracking via unique ID
-      
-    • Responsive design
-      
-    • View admin announcements
-      
-    • Priority-based grievance handling (AI-powered)
-2.Officials Portal
-   
-    • Department-wise dashboard
-      
-    • Status management (Pending, Processing, Resolved, Rejected)
-      
-    • Grievance statistics with charts
-      
-    • Admin announcement module
-3.AI/ML Capabilities
-    
-    • Priority prediction based on text (High / Medium / Low)
-      
-    • Built using NLTK and TensorFlow
-      
-    • Flask API for classification
-      
-    • NLP pipeline using Naive Bayes and neural models
+Key Features
+1. Citizen Portal
 
+Grievance submission with unique tracking ID
 
-# Database Collections (MongoDB)
-grievances: Stores all grievance data
+AI-based priority assignment (High / Medium / Low)
 
-admins: Admin login and announcements
+Status tracking & official announcements
 
-announcements: Stores official notices
+Responsive UI
+
+2. Officials Portal
+
+Department-wise grievance dashboard
+
+Status control (Pending, Processing, Resolved, Rejected)
+
+Analytics & grievance statistics
+
+Admin announcement system
+
+3. AI Capabilities
+
+NLP-based text classification
+
+Sentiment & priority prediction
+
+Flask-based ML microservice
+
+Modular and scalable AI architecture
 
 #How to run
 
@@ -111,15 +96,3 @@ ii) Admin Portal
 >React & Tailwind for modern UI
 
 >MongoDB for fast and scalable storage
-
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c91b06c0-338a-4eba-9bda-c2697de60131" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/fe232789-e90d-451c-bbb4-f8a51d58264d" />
-<img width="1920" height="1013" alt="image" src="https://github.com/user-attachments/assets/40ffdd20-b3b9-42dd-b77d-cd1f9b43be21" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7e9a24e2-35d1-444e-ba69-d39a1af59de3" />
-
-
-
-
-
-
-

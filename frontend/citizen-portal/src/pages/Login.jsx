@@ -52,7 +52,7 @@ export default function Login() {
       <div className="hidden md:flex flex-col justify-between p-12 text-white">
         <div>
           <h1 className="text-4xl font-extrabold tracking-wide mb-4">
-            SAMADHAN
+            LokSeva AI
           </h1>
           <p className="text-lg opacity-90 mb-8">
             AI-Powered Citizen Grievance Redressal Platform
