@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {Link , useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../index.css";
 
@@ -177,6 +177,15 @@ function Login({ setAuthenticated }) {
                   Need help? Contact IT Support
                 </span>
               </div>
+               <div className="text-center text-sm text-gray-600">
+               you don't have an account, {" "}
+              <Link
+                to="/admin/signup"
+                className="text-blue-700 font-medium hover:underline"
+              >
+                sign up here
+              </Link>
+            </div>
             </form>
           </div>
         </div>
