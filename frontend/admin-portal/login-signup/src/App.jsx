@@ -1,13 +1,18 @@
 import ProtectedRoute from "./components/ProtectedRoute";
+import RoleRoute from "./components/RoleRoute"; // ✅ ADD THIS
 import React from "react";
- import { Routes, Route, Link } from "react-router-dom";
-  import Login from "./components/Login"; 
-  import Signup from "./components/Signup";
-   import './index.css';
-    import Dashboard from "./components/Dashboard";
-     import { useState } from "react";
-      import GrievanceDashboard from "./components/GrievancesDashboard"; 
+import { Routes, Route, Link } from "react-router-dom";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import './index.css';
+import Dashboard from "./components/Dashboard";
+import { useState } from "react";
+import GrievanceDashboard from "./components/GrievancesDashboard";
 import Announcements from "./components/Announcements";
+
+// 👉 (you must have this component)
+import DepartmentDashboard from "./components/department/DepartmentDashboard"; 
+
 function App() {
   const [isAuthenticated, setAuthenticated] = useState(false);
 
@@ -23,7 +28,7 @@ function App() {
 
         <Route path="/admin/signup" element={<Signup />} />
 
-        {/* 🔐 Protected Routes */}
+        {/* 🔐 Protected Admin Routes */}
         <Route
           path="/admin/dashboard"
           element={
@@ -47,6 +52,18 @@ function App() {
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
               <Announcements />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* ✅ NEW: Department Dashboard (Role Based) */}
+        <Route
+          path="/department-dashboard"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <RoleRoute allowedRoles={["department_head", "department_officer"]}>
+                <DepartmentDashboard />
+              </RoleRoute>
             </ProtectedRoute>
           }
         />

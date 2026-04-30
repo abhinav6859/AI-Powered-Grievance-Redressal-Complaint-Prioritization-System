@@ -10,6 +10,7 @@ import adminAuthRoutes from "./routes/adminAUth.js";
 import adminDashboardRoutes from "./routes/adminDashboard.js";
 import announcementRoutes from "./routes/announcements.js";
 import authRoutes from "./routes/citizenAuth.js";
+import dashboardRoutes from "./routes/dashboard.js";
 
 dotenv.config(); // ✅ load env
 connectDB();
@@ -44,7 +45,7 @@ app.use("/api/announcements", announcementRoutes);
 app.use("/api/grievance", grievanceRoutes);
 app.use("/api/admin", adminAuthRoutes);
 app.use("/api/auth", authRoutes);
-
+app.use("/api", dashboardRoutes);
 
 
  app.listen(process.env.PORT || 5000, () =>

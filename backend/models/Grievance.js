@@ -6,7 +6,10 @@ const grievanceSchema = new Schema({
   email: String,
   mobile: String, // Added mobile to match frontend
   message: String,
-  department: String,
+  department: {
+  type: String,
+  required: true
+},
   address: String,
   
   // NEW: Store array of image file paths/URLs
