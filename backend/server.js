@@ -4,13 +4,14 @@ import cors from "cors";
 import dotenv from "dotenv";
 import path from "path";
 import { connectDB } from "./config/db.js";
+import { verifyToken } from "./middleware/auth.js";
 
 import grievanceRoutes from "./routes/grievance.js";
 import adminAuthRoutes from "./routes/adminAUth.js";
 import adminDashboardRoutes from "./routes/adminDashboard.js";
 import announcementRoutes from "./routes/announcements.js";
 import authRoutes from "./routes/citizenAuth.js";
-import dashboardRoutes from "./routes/dashboard.js";
+import dashboardRoutes from "./routes/departmentDashboard.js";
 
 dotenv.config(); // ✅ load env
 connectDB();
@@ -45,9 +46,28 @@ app.use("/api/announcements", announcementRoutes);
 app.use("/api/grievance", grievanceRoutes);
 app.use("/api/admin", adminAuthRoutes);
 app.use("/api/auth", authRoutes);
-app.use("/api", dashboardRoutes);
+app.use("/api/department-dashboard", dashboardRoutes);
 
 
+app.get("/api/debug/user-info", verifyToken, async (req, res) => {
+  try {
+    const Grievance = mongoose.model("Grievance");
+    const userDepartment = req.user.department;
+    const complaintsInDept = await Grievance.countDocuments({ department: userDepartment });
+    
+    res.json({
+      user: {
+        id: req.user.id,
+        role: req.user.role,
+        department: userDepartment
+      },
+      complaintsInYourDepartment: complaintsInDept,
+      allDepartments: await Grievance.distinct("department")
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
  app.listen(process.env.PORT || 5000, () =>
       console.log(`Server running on port ${process.env.PORT || 5000}`)
     );

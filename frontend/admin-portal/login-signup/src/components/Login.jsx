@@ -20,26 +20,48 @@ function Login({ setAuthenticated }) {
 
   const departments = ["Health", "Education", "Transport"];
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post(`${API}/api/admin/login`, {
-        email,
-        password,
-        role,
-        department,
-      });
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await axios.post(`${API}/api/admin/login`, {
+      email,
+      password, // ✅ removed role & department (secure)
+    });
 
-      if (response.status === 200) {
-        setAuthenticated(true);
-        localStorage.setItem("isAuthenticated", "true");
-        alert(response.data.message || "Login Successful");
-        navigate("/admin/dashboard");
-      }
-    } catch (err) {
-      alert(err.response?.data?.error || "Login failed");
-    }
-  };
+
+if (response.status === 200) {
+  setAuthenticated(true);
+
+  localStorage.setItem("isAuthenticated", "true");
+  localStorage.setItem("token", response.data.token);
+
+  // ✅ FIXED: store user object
+  localStorage.setItem(
+    "user",
+    JSON.stringify({
+      role: response.data.role,
+      department: response.data.department,
+    })
+  );
+
+  alert(response.data.message || "Login Successful");
+  console.log("Login success");
+
+  if (response.data.role === "admin") {
+    navigate("/admin/dashboard");
+  } else if (
+    response.data.role === "department_head" ||
+    response.data.role === "department_officer"
+  ) {
+    navigate("/department-dashboard"); // ✅ FIXED
+  } else {
+    navigate("/");
+  }
+}
+  } catch (err) {
+    alert(err.response?.data?.error || "Login failed");
+  }
+};
 
   return (
     <div className="min-h-screen bg-[#f2f4f7] flex flex-col">

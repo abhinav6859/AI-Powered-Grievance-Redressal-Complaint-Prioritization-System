@@ -14,8 +14,10 @@ import Announcements from "./components/Announcements";
 import DepartmentDashboard from "./components/department/DepartmentDashboard"; 
 
 function App() {
-  const [isAuthenticated, setAuthenticated] = useState(false);
-
+ 
+const [isAuthenticated, setAuthenticated] = useState(
+  !!localStorage.getItem("token")
+);
   return (
     <>
       <Routes>
@@ -57,7 +59,9 @@ function App() {
         />
 
         {/* ✅ NEW: Department Dashboard (Role Based) */}
+        
         <Route
+        
           path="/department-dashboard"
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
