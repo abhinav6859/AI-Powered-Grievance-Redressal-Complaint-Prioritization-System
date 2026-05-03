@@ -49,25 +49,6 @@ app.use("/api/auth", authRoutes);
 app.use("/api/department-dashboard", dashboardRoutes);
 
 
-app.get("/api/debug/user-info", verifyToken, async (req, res) => {
-  try {
-    const Grievance = mongoose.model("Grievance");
-    const userDepartment = req.user.department;
-    const complaintsInDept = await Grievance.countDocuments({ department: userDepartment });
-    
-    res.json({
-      user: {
-        id: req.user.id,
-        role: req.user.role,
-        department: userDepartment
-      },
-      complaintsInYourDepartment: complaintsInDept,
-      allDepartments: await Grievance.distinct("department")
-    });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
  app.listen(process.env.PORT || 5000, () =>
       console.log(`Server running on port ${process.env.PORT || 5000}`)
     );

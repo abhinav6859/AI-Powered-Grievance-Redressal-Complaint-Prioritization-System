@@ -9,15 +9,16 @@ import Dashboard from "./components/Dashboard";
 import { useState } from "react";
 import GrievanceDashboard from "./components/GrievancesDashboard";
 import Announcements from "./components/Announcements";
+import DepartmentGrievance from "./components/department/DepartmentGrievance"; 
 
 // 👉 (you must have this component)
 import DepartmentDashboard from "./components/department/DepartmentDashboard"; 
 
 function App() {
- 
-const [isAuthenticated, setAuthenticated] = useState(
-  !!localStorage.getItem("token")
-);
+  const [isAuthenticated, setAuthenticated] = useState(
+    !!localStorage.getItem("token")
+  );
+  
   return (
     <>
       <Routes>
@@ -59,14 +60,24 @@ const [isAuthenticated, setAuthenticated] = useState(
         />
 
         {/* ✅ NEW: Department Dashboard (Role Based) */}
-        
         <Route
-        
           path="/department-dashboard"
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
               <RoleRoute allowedRoles={["department_head", "department_officer"]}>
                 <DepartmentDashboard />
+              </RoleRoute>
+            </ProtectedRoute>
+          }
+        />
+
+        {/* ✅ Department Grievances Route */}
+        <Route
+          path="/admin/department/grievances"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <RoleRoute allowedRoles={["department_head", "department_officer"]}>
+                <DepartmentGrievance />
               </RoleRoute>
             </ProtectedRoute>
           }

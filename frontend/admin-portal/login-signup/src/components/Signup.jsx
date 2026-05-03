@@ -23,7 +23,7 @@ function Signup() {
     { value: "department_officer", label: "Department Officer" },
   ];
 
-  const departments = ["Health", "Education", "Transport"];
+  const departments = ["Health", "General", "Transport"];
 
   // ✅ FIXED: handleChange with department reset
   const handleChange = (e) => {

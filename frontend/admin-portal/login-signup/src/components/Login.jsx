@@ -18,7 +18,7 @@ function Login({ setAuthenticated }) {
     { value: "department_officer", label: "Department Officer" },
   ];
 
-  const departments = ["Health", "Education", "Transport"];
+  const departments = ["Health", "General", "Transport"];
 
  const handleSubmit = async (e) => {
   e.preventDefault();
