@@ -14,7 +14,7 @@
     "apexcharts": "^4.7.0",
     "axios": "^1.9.0",
     "canvasjs": "^1.8.3",
-    "framer-motion": "^12.27.2",
+    "framer-motion": "^12.38.0",
     "highcharts": "^12.2.0",
     "highcharts-react-official": "^3.2.2",
     "lucide-react": "^0.511.0",

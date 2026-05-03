@@ -145,7 +145,7 @@ const GrievancesDashboard = ({ userRole, userDepartment }) => {
     // Update stats based on filtered grievances
     const total = filtered.length;
     const pending = filtered.filter(g => g.status === 'Pending').length;
-    const inProgress = filtered.filter(g => g.status === 'In Progress').length;
+    const inProgress = filtered.filter(g => g.status === 'Processing').length;
     const resolved = filtered.filter(g => g.status === 'Resolved').length;
     
     setStats({ total, pending, inProgress, resolved });
