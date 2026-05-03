@@ -43,6 +43,15 @@ if (response.status === 200) {
       department: response.data.department,
     })
   );
+    localStorage.setItem("userRole", response.data.role);
+      localStorage.setItem("role", response.data.role);
+      localStorage.setItem("userDepartment", response.data.department);
+      localStorage.setItem("department", response.data.department);
+
+      console.log("Stored user info:", {
+        role: response.data.role,
+        department: response.data.department
+      });
 
   alert(response.data.message || "Login Successful");
   console.log("Login success");

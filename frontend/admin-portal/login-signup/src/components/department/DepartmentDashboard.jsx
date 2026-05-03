@@ -19,7 +19,7 @@ import Announcements from "../Announcements";
 
 const API = import.meta.env.VITE_API_URL;
 
-function Dashboard() {
+function DepartmentDashboard() {
   const navigate = useNavigate();
 
   const [stats, setStats] = useState({
@@ -33,11 +33,9 @@ function Dashboard() {
   const [alerts, setAlerts] = useState([]);
   const [tasks, setTasks] = useState([]);
   
-  // Get logged-in user's department and role from localStorage or context
   const [userDepartment, setUserDepartment] = useState("");
   const [userRole, setUserRole] = useState("");
 
-  // Add this derived data for PieChart
   const statusData = [
     { name: "Resolved", value: stats.resolved },
     { name: "Pending", value: stats.pending },
@@ -47,33 +45,37 @@ function Dashboard() {
   const COLORS = ["#10b981", "#fbbf24", "#ef4444"];
 
   useEffect(() => {
-    // Fetch user department from localStorage (adjust based on your auth system)
+    // Get user info from localStorage
     const getUserInfo = () => {
-      // Option 1: From localStorage
-      const department = localStorage.getItem("userDepartment") || 
-                        localStorage.getItem("department") || 
-                        "general"; // Default to general if not found
+      // Try to get from stored user object first
+      const userStr = localStorage.getItem("user");
+      if (userStr) {
+        try {
+          const user = JSON.parse(userStr);
+          setUserRole(user.role || "department_officer");
+          setUserDepartment(user.department || "general");
+          console.log("User from user object:", user);
+        } catch (err) {
+          console.error("Error parsing user object:", err);
+        }
+      }
       
+      // Fallback to direct storage keys
       const role = localStorage.getItem("userRole") || 
-                  localStorage.getItem("role") || 
-                  "officer"; // Default to officer if not found
+                  localStorage.getItem("role");
+      const department = localStorage.getItem("userDepartment") || 
+                        localStorage.getItem("department");
       
-      // Option 2: From sessionStorage
-      // const department = sessionStorage.getItem("userDepartment");
-      // const role = sessionStorage.getItem("userRole");
+      if (role && !userRole) {
+        setUserRole(role);
+      }
+      if (department && !userDepartment) {
+        setUserDepartment(department);
+      }
       
-      // Option 3: From decoded JWT token (if you store it)
-      // const token = localStorage.getItem("token");
-      // if (token) {
-      //   const decoded = JSON.parse(atob(token.split('.')[1]));
-      //   const department = decoded.department;
-      //   const role = decoded.role;
-      // }
-      
-      setUserDepartment(department);
-      setUserRole(role);
-      
-      console.log("Logged in user:", { department, role });
+      // If still not set, use defaults
+      if (!userRole) setUserRole("department_officer");
+      if (!userDepartment) setUserDepartment("general");
     };
     
     getUserInfo();
@@ -124,7 +126,11 @@ function Dashboard() {
     localStorage.removeItem("isAuthenticated");
     localStorage.removeItem("userDepartment");
     localStorage.removeItem("userRole");
-    // Clear any other auth data
+    localStorage.removeItem("department");
+    localStorage.removeItem("role");
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    sessionStorage.clear();
     navigate("/admin/login");
   };
 
@@ -147,10 +153,9 @@ function Dashboard() {
           </div>
 
           <div className="flex items-center gap-3">
-            {/* Show user info */}
             {userDepartment && (
               <div className="text-sm text-gray-600 bg-white px-3 py-2 rounded-lg shadow">
-                <span className="font-semibold">{userRole}</span>
+                <span className="font-semibold capitalize">{userRole?.replace('_', ' ')}</span>
                 <span className="mx-1">-</span>
                 <span className="font-bold uppercase">{userDepartment}</span>
               </div>
@@ -165,7 +170,7 @@ function Dashboard() {
         </header>
 
         <section className="bg-gray-900 text-white p-6 rounded-xl shadow mb-6">
-          <div className="text-xl font-bold">Welcome back, {userRole || "Admin"}</div>
+          <div className="text-xl font-bold">Welcome back, {userRole?.replace('_', ' ') || "Officer"}</div>
           <p className="text-sm mt-1">Here's what's happening in your jurisdiction today</p>
           <div className="mt-4 flex justify-between">
             <div>
@@ -248,45 +253,52 @@ function Dashboard() {
           </div>
         </section>
 
-        <div className="md:grid-cols-2 gap-6 mb-6">
+        <div className="grid md:grid-cols-2 gap-6 mb-6">
           <div className="bg-red-100 p-6 rounded-xl shadow">
             <h3 className="font-semibold text-red-700 mb-4">Critical Alerts</h3>
-            {alerts.map((alert, index) => (
-              <div key={index} className="mb-4">
-                <p className="font-bold">⚠️ {alert.title}</p>
-                <p className="text-sm">
-                  {alert.message} - {alert.time}
-                </p>
-              </div>
-            ))}
+            {alerts.length > 0 ? (
+              alerts.map((alert, index) => (
+                <div key={index} className="mb-4">
+                  <p className="font-bold">⚠️ {alert.title}</p>
+                  <p className="text-sm">
+                    {alert.message} - {alert.time}
+                  </p>
+                </div>
+              ))
+            ) : (
+              <p className="text-gray-600">No critical alerts</p>
+            )}
           </div>
         </div>
 
         <section className="bg-white p-6 rounded-xl shadow">
           <h3 className="font-semibold mb-4">Assigned Tasks</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {tasks.map((task) => (
-              <div
-                key={task.id}
-                className={`p-4 border-l-4 rounded ${
-                  task.priority === "high"
-                    ? "bg-red-50 border-red-500"
-                    : task.priority === "medium"
-                    ? "bg-yellow-50 border-yellow-500"
-                    : "bg-green-50 border-green-500"
-                }`}
-              >
-                <h4 className="font-bold capitalize">{task.priority} Priority</h4>
-                <p>
-                  {task.title} - {task.deadline}
-                </p>
-              </div>
-            ))}
+            {tasks.length > 0 ? (
+              tasks.map((task) => (
+                <div
+                  key={task.id}
+                  className={`p-4 border-l-4 rounded ${
+                    task.priority === "high"
+                      ? "bg-red-50 border-red-500"
+                      : task.priority === "medium"
+                      ? "bg-yellow-50 border-yellow-500"
+                      : "bg-green-50 border-green-500"
+                  }`}
+                >
+                  <h4 className="font-bold capitalize">{task.priority} Priority</h4>
+                  <p>
+                    {task.title} - {task.deadline}
+                  </p>
+                </div>
+              ))
+            ) : (
+              <p className="text-gray-600 col-span-3 text-center">No tasks assigned</p>
+            )}
           </div>
         </section>
       </div>
 
-      {/* Routes - Pass user department and role to GrievancesDashboard */}
       <Routes>
         <Route 
           path="/admin/department/Grievances" 
@@ -306,4 +318,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default DepartmentDashboard;
