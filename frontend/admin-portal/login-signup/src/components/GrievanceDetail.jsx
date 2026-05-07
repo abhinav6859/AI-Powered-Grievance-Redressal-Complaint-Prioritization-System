@@ -3,6 +3,8 @@ import axios from 'axios';
 import ResolutionTimeline from './ResolutionTimeline';
 
 const GrievanceDetails = ({ grievance, onClose }) => {
+  
+ 
   if (!grievance) return null;
 
   return (
@@ -20,6 +22,8 @@ const GrievanceDetails = ({ grievance, onClose }) => {
           <p><strong>Status:</strong> {grievance.status}</p>
           <p><strong>Tracking ID:</strong> {grievance.trackingId}</p>
           <p><strong>Created At:</strong> {new Date(grievance.createdAt).toLocaleString()}</p>
+          <p><strong>🧠 AI Summary:</strong> {grievance.aiSummary}</p>
+          <p><strong>⚡ AI Priority:</strong> {grievance.aiPriority}</p>
         </div>
 
         

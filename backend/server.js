@@ -15,7 +15,6 @@ import dashboardRoutes from "./routes/departmentDashboard.js";
 
 dotenv.config(); // ✅ load env
 connectDB();
-
 const app = express();
 
 const allowedOrigins = [
@@ -37,7 +36,7 @@ app.use(
 );
 
 app.use(express.json());
-
+app.use(express.urlencoded({ extended: true })); 
 // Static uploads
 app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 

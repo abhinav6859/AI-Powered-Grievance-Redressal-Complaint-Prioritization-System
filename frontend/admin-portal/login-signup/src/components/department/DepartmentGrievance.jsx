@@ -10,6 +10,7 @@ const API = import.meta.env.VITE_API_URL;
 const departmentMapping = {
   // Health department handles: water supply, agriculture, health
   'water supply': 'health',
+  'water': 'health',
   'agriculture': 'health',
   'health': 'health',
   

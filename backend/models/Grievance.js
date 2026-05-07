@@ -27,9 +27,19 @@ const grievanceSchema = new Schema({
     default: "Pending",
     enum: ["Pending", "Processing", "Resolved", "Rejected"]
   },
+
+   aiSummary:  {
+    type: String,
+    default: "No summary available",
+  },
+  aiPriority: {
+    type: String,
+    enum: ["Low", "Medium", "High", "Critical"],
+    default: "Medium",
+  },
   priority: {
     type: String,
-    enum: ['High', 'Medium', 'Low'],
+    enum: ["Low", "Medium", "High", "Critical"],
     default: 'Low',
   },
   createdAt: { type: Date, default: Date.now },
