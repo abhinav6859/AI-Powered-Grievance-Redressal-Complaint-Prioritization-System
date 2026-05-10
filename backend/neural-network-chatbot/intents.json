@@ -1,8 +1,10 @@
 {"intents":
 [
 {"tags": "greetings",
-"patterns": ["hi", "hello", "hey", "how are you", "what's up?"],
-"responses": ["Hi!", "Hello!", "Hey!", "Hey, I am fine", "What can I do for you?"]},
+"patterns": ["hi", "hello", "hey","hy", "how are you", "what's up?"],
+"responses": [ "Hello! How can I help you today?",
+        "Hi there! What issue would you like to report?",
+        "Hey! Tell me your complaint.","Hey, I am fine", "What can I do for you?"]},
 
 {
     "tags": "Water Supply",
