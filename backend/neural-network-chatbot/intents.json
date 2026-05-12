@@ -83,6 +83,123 @@
   "responses": [
     "There are frequent power cuts and voltage fluctuations in our locality. It is affecting daily life and damaging appliances. Please resolve the electricity issue urgently."
     ]
-   }
+   },
+   {
+  "tags": "Agriculture Problem",
+  "patterns": [
+    "crop damage",
+    "irrigation issue",
+    "fertilizer shortage",
+    "farmer problem",
+    "agriculture issue"
+  ],
+  "responses": [
+    "Farmers in our area are facing serious agricultural problems including crop damage, lack of irrigation facilities, and shortage of fertilizers. This is affecting crop production and farmer income. Please resolve the issue urgently."
+  ]
+},
+{
+  "tags": "Misbehave With Women",
+  "patterns": [
+    "harassment complaint",
+    "misbehave with women",
+    "women safety issue",
+    "eve teasing",
+    "inappropriate behavior"
+  ],
+  "responses": [
+    "There have been incidents of harassment and inappropriate behavior towards women in our locality. This is creating fear and insecurity among women residents. Strict action and improved safety measures are urgently needed."
+  ]
+},
+{
+  "tags": "Land Dispute",
+  "patterns": [
+    "property dispute",
+    "land conflict",
+    "illegal land कब्जा",
+    "boundary issue",
+    "land dispute issue"
+  ],
+  "responses": [
+    "There is an ongoing land dispute in our area regarding property ownership and boundary issues. The conflict is creating tension among residents. Kindly investigate and resolve the matter fairly."
+  ]
+},
+{
+  "tags": "Education Problem",
+  "patterns": [
+    "school issue",
+    "lack of teachers",
+    "education problem",
+    "poor education system",
+    "college complaint"
+  ],
+  "responses": [
+    "Students in our area are facing educational problems due to shortage of teachers, poor infrastructure, and lack of proper learning facilities. Immediate attention is required to improve the education system."
+  ]
+},
+{
+  "tags": "Traffic Problem",
+  "patterns": [
+    "traffic jam",
+    "heavy traffic",
+    "signal not working",
+    "road congestion",
+    "traffic issue"
+  ],
+  "responses": [
+    "Heavy traffic congestion and malfunctioning traffic signals are causing major inconvenience and delays in our area. Proper traffic management is urgently needed."
+  ]
+},
+{
+  "tags": "Hospital Problem",
+  "patterns": [
+    "hospital complaint",
+    "lack of doctors",
+    "medical issue",
+    "poor hospital service",
+    "healthcare problem"
+  ],
+  "responses": [
+    "Patients are facing difficulties due to lack of doctors, poor medical facilities, and long waiting times in the hospital. Immediate improvements are required."
+  ]
+},
+{
+  "tags": "Police Complaint",
+  "patterns": [
+    "police issue",
+    "slow police response",
+    "security complaint",
+    "crime problem",
+    "unsafe area"
+  ],
+  "responses": [
+    "Criminal activities are increasing in our locality and police response has been slow. Residents are feeling unsafe and request immediate action."
+  ]
+},
+{
+  "tags": "Internet Problem",
+  "patterns": [
+    "slow internet",
+    "network issue",
+    "wifi not working",
+    "internet outage",
+    "poor connectivity"
+  ],
+  "responses": [
+    "Internet connectivity in our area has been extremely poor with frequent outages and slow speed affecting work and studies. Please resolve the issue quickly."
+  ]
+},
+{
+  "tags": "Noise Pollution",
+  "patterns": [
+    "loud noise",
+    "noise pollution",
+    "disturbing sound",
+    "construction noise",
+    "speaker volume issue"
+  ],
+  "responses": [
+    "Excessive noise from loudspeakers and construction activities is disturbing residents and affecting peace in the locality. Necessary action is requested."
+  ]
+}
   ]
 }
